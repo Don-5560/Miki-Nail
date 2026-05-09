@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品詳細 | fleur nail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo shop-name">fleur nail</a>
+      <nav class="header-nav">
+        <span class="nav-links">
+          <a href="index.html#products">商品一覧</a>
+        </span>
+        <a href="https://www.instagram.com/" class="header-ig ig-link" target="_blank" rel="noopener noreferrer">
+          &#x1F4F7; Instagram
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- パンくずリスト -->
+  <nav class="breadcrumb container">
+    <a href="index.html">ホーム</a> &nbsp;/&nbsp; <span id="productName">商品詳細</span>
+  </nav>
+
+  <!-- 商品詳細 -->
+  <main class="detail-wrap">
+
+    <!-- 左：画像エリア -->
+    <div class="detail-images">
+      <div class="main-image-wrap">
+        <img id="mainImage" src="" alt="商品画像">
+      </div>
+      <div class="thumbnails" id="thumbnails">
+        <!-- product.js が動的に生成します -->
+      </div>
+    </div>
+
+    <!-- 右：情報エリア -->
+    <div class="detail-info">
+      <div class="detail-tags" id="productTags">
+        <!-- product.js が動的に生成します -->
+      </div>
+
+      <h1 class="detail-name" id="productName">読み込み中...</h1>
+      <p class="detail-price" id="productPrice"></p>
+      <div id="stockStatus"></div>
+
+      <hr class="divider">
+
+      <p class="detail-desc" id="productDesc"></p>
+
+      <!-- サイズ選択 -->
+      <div id="sizeWrap">
+        <p class="size-label">サイズを選択</p>
+        <div class="size-options" id="sizeOptions">
+          <!-- product.js が動的に生成します -->
+        </div>
+      </div>
+
+      <!-- Instagramお問い合わせボタン -->
+      <a class="btn-dm" id="dmButton" href="#" target="_blank" rel="noopener noreferrer">
+        Instagramでお問い合わせ &#x1F48C;
+      </a>
+      <p class="note-text">InstagramのDMにてサイズ・在庫確認後にご注文いただけます</p>
+    </div>
+
+  </main>
+
+  <!-- 関連商品 -->
+  <section class="related-section" id="relatedSection">
+    <div class="container">
+      <h2 class="section-title">
+        <span>RELATED ITEMS</span>
+        こちらもおすすめ
+      </h2>
+      <div class="product-grid" id="relatedGrid">
+        <!-- product.js が動的に生成します -->
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p class="footer-logo shop-name">fleur nail</p>
+    <p class="footer-desc">ご購入・お問い合わせはInstagramのDMからどうぞ &#x1F48C;</p>
+    <a href="https://www.instagram.com/" class="footer-ig ig-link" target="_blank" rel="noopener noreferrer">
+      @your_instagram
+    </a>
+    <p class="footer-copy">&copy; 2026 fleur nail. All rights reserved.</p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理画面 | fleur nail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- パスワード認証画面 -->
+  <div class="password-overlay" id="passwordOverlay" style="display:none;">
+    <div class="password-box">
+      <h2>管理画面</h2>
+      <p>パスワードを入力してください</p>
+      <form id="passwordForm">
+        <input type="password" id="passwordInput" placeholder="パスワード" autocomplete="current-password">
+        <p class="pw-error" id="passwordError">パスワードが違います</p>
+        <button type="submit">ログイン</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 管理画面ヘッダー -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <span class="admin-logo">fleur nail — 管理画面</span>
+      <a href="index.html" target="_blank">サイトを確認 ↗</a>
+    </div>
+  </header>
+
+  <!-- 管理画面 本体 -->
+  <main class="admin-body">
+
+    <!-- タブ -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="tab-products">商品管理</button>
+      <button class="tab-btn" data-tab="tab-tags">タグ管理</button>
+      <button class="tab-btn" data-tab="tab-settings">ショップ設定</button>
+    </div>
+
+    <!-- ── タブ1: 商品管理 ── -->
+    <div class="tab-content active" id="tab-products">
+      <button class="add-btn" id="addNewBtn">
+        ＋ 新しく出品する
+      </button>
+      <div id="productList">
+        <!-- admin.js が動的に生成します -->
+      </div>
+    </div>
+
+    <!-- ── タブ2: タグ管理 ── -->
+    <div class="tab-content" id="tab-tags">
+      <div class="settings-form">
+        <h3>タグ管理</h3>
+        <p style="font-size:13px; color:var(--text-sub); margin-bottom:20px;">
+          タグを削除すると、そのタグを持つすべての商品からも取り除かれます。
+        </p>
+
+        <div class="tag-add-row">
+          <input type="text" id="newTagName" placeholder="新しいタグ名を入力">
+          <button type="button" id="addTagBtn" class="btn-save">追加</button>
+        </div>
+
+        <div class="tag-master-list" id="tagMasterList">
+          <!-- admin.js が動的に生成します -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ── タブ3: ショップ設定 ── -->
+    <div class="tab-content" id="tab-settings">
+      <div class="settings-form">
+        <h3>ショップ設定</h3>
+        <form id="settingsForm">
+
+          <div class="form-group">
+            <label>ショップ名</label>
+            <input type="text" id="settingShopName" placeholder="fleur nail">
+          </div>
+
+          <div class="form-group">
+            <label>InstagramのID（@なし）</label>
+            <input type="text" id="settingIg" placeholder="your_instagram">
+            <p class="settings-hint">例：nail_hanako_official （@はつけない）</p>
+          </div>
+
+          <div class="form-group">
+            <label>トップページのキャッチコピー（改行は\nで入力）</label>
+            <input type="text" id="settingHeroTitle" placeholder="あなたの指先に\n特別なひとときを">
+          </div>
+
+          <div class="form-group">
+            <label>サブテキスト（英語の小さい文字）</label>
+            <input type="text" id="settingHeroSub" placeholder="handmade nail chips">
+          </div>
+
+          <button type="submit" class="btn-save">設定を保存する</button>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 出品・編集フォーム（モーダル） -->
+  <div class="form-overlay" id="formOverlay">
+    <div class="form-box">
+      <h3 id="formTitle">新しく出品する</h3>
+
+      <form id="productForm">
+
+        <div class="form-group">
+          <label>商品名 <span style="color:#E07090">*必須</span></label>
+          <input type="text" id="fieldName" placeholder="例：フレンチネイルセット" required>
+        </div>
+
+        <div class="form-group">
+          <label>価格（税込・円） <span style="color:#E07090">*必須</span></label>
+          <input type="number" id="fieldPrice" placeholder="例：2800" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label>在庫数 <span style="color:#E07090">*必須</span></label>
+          <input type="number" id="fieldStock" placeholder="例：3" min="0" required>
+          <p class="settings-hint">0にするとSOLD OUTと表示されます</p>
+        </div>
+
+        <div class="form-group">
+          <label>タグ</label>
+          <div class="tag-check-group" id="tagCheckGroup">
+            <!-- admin.js が動的に生成します -->
+          </div>
+          <div class="new-tag-inline">
+            <input type="text" id="newTagInForm" placeholder="新しいタグを入力して追加">
+            <button type="button" id="addTagInFormBtn">＋ 追加</button>
+          </div>
+          <p class="settings-hint">タグ管理タブで一覧を編集できます</p>
+        </div>
+
+        <div class="form-group">
+          <label>サイズ（複数選択可）</label>
+          <div class="size-check-group">
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="XS"> XS</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="S"> S</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="M"> M</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="L"> L</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="LL"> LL</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="フリー"> フリー</label>
+            <label class="size-check-label"><input type="checkbox" class="size-check" value="オーダー"> オーダー</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>商品説明</label>
+          <textarea id="fieldDesc" placeholder="商品の説明を入力してください。&#10;改行もそのまま使えます。"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>商品画像</label>
+          <div class="image-upload-area">
+            <label class="upload-btn" for="imageUpload">&#x1F4F7; 画像を選ぶ（複数可）</label>
+            <input type="file" id="imageUpload" accept="image/*" multiple style="display:none;">
+            <p class="settings-hint" style="margin-bottom:0;">1枚目がメイン画像になります。JPG・PNG・WebP対応。</p>
+            <div class="image-preview-area" id="imagePreviewArea">
+              <p class="upload-hint">画像をアップロードしてください（複数可）</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">保存する</button>
+          <button type="button" class="btn-secondary" id="cancelBtn">キャンセル</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- トースト通知 -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

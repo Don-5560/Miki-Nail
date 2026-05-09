@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>fleur nail | ハンドメイドネイルチップ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo shop-name">fleur nail</a>
+      <nav class="header-nav">
+        <span class="nav-links">
+          <a href="#products">商品一覧</a>
+        </span>
+        <a href="https://www.instagram.com/" class="header-ig ig-link" target="_blank" rel="noopener noreferrer">
+          &#x1F4F7; Instagram
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="hero">
+    <p class="hero-sub" id="heroSub">handmade nail chips</p>
+    <h1 class="hero-title" id="heroTitle">あなたの指先に<br>特別なひとときを</h1>
+    <a href="#products" class="hero-btn">商品を見る</a>
+  </section>
+
+  <!-- タグフィルター -->
+  <section class="filter-section" id="products">
+    <div class="container">
+      <p class="filter-label">— CATEGORY —</p>
+      <div class="tag-filter" id="tagFilter">
+        <!-- index.js が動的に生成します -->
+      </div>
+    </div>
+  </section>
+
+  <!-- 商品グリッド -->
+  <section class="products-section">
+    <div class="container">
+      <div class="product-grid" id="productGrid">
+        <!-- index.js が動的に生成します -->
+      </div>
+      <p class="empty-message" id="emptyMessage" style="display:none;">
+        この条件の商品はありません
+      </p>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p class="footer-logo shop-name">fleur nail</p>
+    <p class="footer-desc">ご購入・お問い合わせはInstagramのDMからどうぞ &#x1F48C;</p>
+    <a href="https://www.instagram.com/" class="footer-ig ig-link" target="_blank" rel="noopener noreferrer">
+      @your_instagram
+    </a>
+    <p class="footer-copy">&copy; 2026 fleur nail. All rights reserved.</p>
+  </footer>
+
+  <script src="js/store.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
